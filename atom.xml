@@ -6,7 +6,7 @@
   <link href="http://auroey.github.io/atom.xml" rel="self"/>
   
   <link href="http://auroey.github.io/"/>
-  <updated>2023-11-23T14:33:58.860Z</updated>
+  <updated>2023-11-24T14:35:14.495Z</updated>
   <id>http://auroey.github.io/</id>
   
   <author>
@@ -17,33 +17,29 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>hi</title>
-    <link href="http://auroey.github.io/2023/11/23/hi/"/>
-    <id>http://auroey.github.io/2023/11/23/hi/</id>
+    <title>三天解决？</title>
+    <link href="http://auroey.github.io/2023/11/23/First%20Try/"/>
+    <id>http://auroey.github.io/2023/11/23/First%20Try/</id>
     <published>2023-11-23T14:33:58.000Z</published>
-    <updated>2023-11-23T14:33:58.860Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://auroey.github.io/2023/11/23/hello-world/"/>
-    <id>http://auroey.github.io/2023/11/23/hello-world/</id>
-    <published>2023-11-23T13:54:00.090Z</published>
-    <updated>2023-11-23T13:53:34.257Z</updated>
+    <updated>2023-11-24T14:35:14.495Z</updated>
     
     
       
       
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+    <summary type="html">&lt;p&gt;萌生了在三天内清理所有待办的想法，先算一下时间。&lt;/p&gt;
+&lt;p&gt;今晚 1h&lt;/p&gt;
+&lt;p&gt;明早 4h&lt;/p&gt;
+&lt;p&gt;明晚 4h&lt;/p&gt;
+&lt;p&gt;后早午 7h&lt;/p&gt;
+&lt;p&gt;后晚 4h&lt;/p&gt;
+&lt;p&gt;共20h，除必要劳动剩17h，文理交叉可一试。&lt;/p&gt;
+&lt;p&gt;之后每做什么会列</summary>
       
     
     
     
+    
+    <category term="daily" scheme="http://auroey.github.io/tags/daily/"/>
     
   </entry>
   

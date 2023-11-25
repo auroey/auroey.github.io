@@ -34,7 +34,7 @@
     <link href="http://auroey.github.io/2023/11/23/First-Try/"/>
     <id>http://auroey.github.io/2023/11/23/First-Try/</id>
     <published>2023-11-23T14:33:58.000Z</published>
-    <updated>2023-11-25T02:44:15.208Z</updated>
+    <updated>2023-11-25T13:27:03.078Z</updated>
     
     
       
@@ -51,8 +51,10 @@
     
     
     
+    <category term="Recording" scheme="http://auroey.github.io/categories/Recording/"/>
     
-    <category term="daily" scheme="http://auroey.github.io/tags/daily/"/>
+    
+    <category term="Daily" scheme="http://auroey.github.io/tags/Daily/"/>
     
   </entry>
   

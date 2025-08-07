@@ -1,0 +1,10 @@
+name: gh-page
+channels:
+  - conda-forge
+dependencies:
+  - ruby
+  - rb-bundler
+  - nodejs
+  - gcc_linux-64
+  - gxx_linux-64
+  - libxcrypt

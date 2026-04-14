@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "何振梁（Zhenliang He）"
+title: "唐昕蕊（Xinrui Tang）"
 excerpt: "About me"
 author_profile: true
 redirect_from: 

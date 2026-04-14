@@ -7,10 +7,10 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Kyle"
+title                    : "Your Name"
 title_separator          : "-"
-name                     : &name "Xinrui Tang"
-description              : &description "Undergraduate at Northeastern University of China"
+name                     : &name "Your Name"
+description              : &description "Your description here"
 url                      : https://auroey.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "auroey/auroey.github.io"
@@ -83,11 +83,11 @@ author:
   name             : ""
   avatar           : "profile.jpg"
   bio              : ""
-  location         : "Beijing, China"
+  location         : ""
   employer         :
   pubmed           :
-  googlescholar    : # "https://scholar.google.com/citations?user=fDTTEaAAAAAJ"
-  email            :  "xinruitang@stumail.neu.edu.cn"
+  googlescholar    : # "https://scholar.google.com/citations?user=yourID"
+  email            :  ""
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -96,7 +96,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "auroey"
+  github           : ""
   google_plus      :
   keybase          :
   instagram        :

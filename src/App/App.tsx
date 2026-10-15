@@ -38,7 +38,10 @@ export const App = () => {
           />
           <div className="hero-content">
             <Content />
-            <p className="hero-focus">{config.researchFocus.join(' · ')}</p>
+            <p className="hero-focus">
+              <span>{config.title.display}</span>
+              <span>{config.affiliation.display}</span>
+            </p>
             <Buttons />
           </div>
         </header>

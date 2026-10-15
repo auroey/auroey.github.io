@@ -33,6 +33,7 @@ export interface PublicationItem {
 export interface Config {
   name: Content;
   title: Content;
+  affiliation: Content;
   introduction: string[];
   researchFocus: string[];
   education: EducationItem[];

@@ -6,7 +6,10 @@ export const config: Config = {
     display: 'Xinrui Tang',
   },
   title: {
-    display: 'AI Researcher in Generative Models, Multimodal AI & World Models',
+    display: 'Researcher of Computer Science',
+  },
+  affiliation: {
+    display: 'Zhejiang University · CAD&CG',
   },
   introduction: [
     'I study intelligent systems that perceive, generate, and interact with virtual worlds.',

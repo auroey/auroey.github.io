@@ -14,6 +14,7 @@ const mockState = {
   config: {
     name: { display: 'Default Name' },
     title: { display: 'Default Title' },
+    affiliation: { display: 'Default Affiliation' },
     introduction: [],
     researchFocus: [],
     education: [],
@@ -84,15 +85,11 @@ describe('application tests', () => {
   });
 
   it('should keep the hero concise', () => {
-    expect(screen.queryByTestId('title')).not.toBeInTheDocument();
+    expect(screen.getByText('Researcher of Computer Science')).toBeVisible();
+    expect(screen.getByText('Zhejiang University · CAD&CG')).toBeVisible();
     expect(
-      screen.queryByText(
-        'AI Researcher in Generative Models, Multimodal AI & World Models',
-      ),
+      screen.queryByText('Generative models · Multimodal AI · World models'),
     ).not.toBeInTheDocument();
-    expect(
-      screen.getByText('Generative models · Multimodal AI · World models'),
-    ).toBeVisible();
     expect(screen.queryByText('Explore research and selected work')).not.toBeInTheDocument();
   });
 

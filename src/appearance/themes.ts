@@ -15,15 +15,14 @@ export const themes: Themes = {
   },
   light: {
     key: 'light',
-    primaryTextColor: '#1f2328',
-    secondaryTextColor: '#59636e',
-    tertiaryTextColor: '#6e7781',
-    accentColor: '#0969da',
-    accentMutedColor: '#ddf4ff',
+    primaryTextColor: '#24364b',
+    secondaryTextColor: '#526273',
+    tertiaryTextColor: '#708090',
+    accentColor: '#205f9b',
+    accentMutedColor: '#edf5fb',
     surfaceColor: '#ffffff',
-    borderColor: '#d1d9e0',
-    background:
-      'radial-gradient(circle at 50% 8%, #ddf4ff 0%, #ffffff 34%, #f6f8fa 100%)',
-    shadowColor: '#1f232814',
+    borderColor: '#dbe3ea',
+    background: '#ffffff',
+    shadowColor: '#12304f12',
   },
 };

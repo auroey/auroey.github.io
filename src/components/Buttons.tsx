@@ -8,40 +8,39 @@ import { Theme } from 'types';
 const Container = styled.div<{ $theme: Theme }>`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.85rem;
-
-  a,
-  a:active,
-  a:hover {
-    outline: 0;
-  }
+  align-items: center;
+  gap: 0.55rem;
 
   .button-container {
-    display: inline-block;
-    margin: 0;
+    display: inline-flex;
   }
 
   .button {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    width: 4.25rem;
-    height: 4.25rem;
-    color: ${({ $theme }) => $theme.primaryTextColor};
-    display: inline-flex;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    position: relative;
-    z-index: 1;
-    border-radius: 12px;
+    display: inline-grid;
+    width: 2.2rem;
+    height: 2.2rem;
+    color: ${({ $theme }) => $theme.secondaryTextColor};
     border: 1px solid ${({ $theme }) => $theme.borderColor};
+    border-radius: 50%;
     background: ${({ $theme }) => $theme.surfaceColor};
-    box-shadow: 0 4px 14px ${({ $theme }) => $theme.shadowColor};
+    place-items: center;
+    text-decoration: none;
+    transition:
+      color 0.18s ease,
+      border-color 0.18s ease,
+      background 0.18s ease;
+  }
+
+  .button:hover,
+  .button:focus-visible {
+    color: ${({ $theme }) => $theme.accentColor};
+    border-color: ${({ $theme }) => $theme.accentColor};
+    background: ${({ $theme }) => $theme.accentMutedColor};
   }
 
   .icon {
-    width: 1.55rem;
-    height: 1.55rem;
+    width: 1rem;
+    height: 1rem;
 
     svg {
       display: block;
@@ -61,32 +60,13 @@ const Container = styled.div<{ $theme: Theme }>`
     white-space: nowrap;
     border: 0;
   }
-
-  .button:hover {
-    color: ${({ $theme }) => $theme.accentColor};
-    background-color: ${({ $theme }) => $theme.accentMutedColor};
-    box-shadow: 0 8px 24px ${({ $theme }) => $theme.shadowColor};
-    border-color: ${({ $theme }) => $theme.accentColor};
-    transform: translateY(-2px);
-  }
-
-  .button:active {
-    transform: translateY(0) scale(0.98);
-  }
-
-  @media only screen and (max-width: 720px) {
-    .button {
-      width: 4rem;
-      height: 4rem;
-    }
-  }
 `;
 
 export const Buttons = () => {
   const { config, theme } = useContext(AppContext);
 
   return (
-    <Container $theme={theme}>
+    <Container $theme={theme} aria-label="Profiles and contact">
       {config.buttons.map(({ name, display, ariaLabel, icon, href }) => (
         <span className="button-container" key={name}>
           <a
@@ -98,7 +78,7 @@ export const Buttons = () => {
             rel="noopener noreferrer"
             target="_blank"
           >
-            <div className="icon">{icon}</div>
+            <span className="icon">{icon}</span>
             <span data-v2={display} className="icon_title">
               {display}
             </span>

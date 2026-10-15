@@ -46,11 +46,7 @@ export const AppProvider = ({
   initialState.config = config;
   initialState.isMobile = isMobile;
 
-  const supportedThemes = Object.keys(themes);
-  const localStorageTheme = localStorage.getItem('theme');
-  if (localStorageTheme && supportedThemes.includes(localStorageTheme)) {
-    initialState.theme = themes[localStorageTheme];
-  }
+  initialState.theme = themes.light;
 
   const [state, dispatch] = useReducer(reducer, initialState);
 

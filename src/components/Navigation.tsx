@@ -6,58 +6,32 @@ import { AppContext } from 'App/AppContext';
 import { Theme } from 'types';
 
 const N = {
-  Header: styled.header<{ $theme: Theme }>`
-    position: fixed;
-    z-index: 8;
-    top: 0;
-    right: 0;
-    left: 0;
-    border-bottom: 1px solid ${({ $theme }) => $theme.borderColor}b3;
-    background: ${({ $theme }) => $theme.surfaceColor}e8;
-    backdrop-filter: blur(18px);
-  `,
-  Inner: styled.div`
-    display: flex;
-    width: min(1040px, calc(100% - 3rem));
-    height: 5.25rem;
-    margin: 0 auto;
-    padding-right: 4.5rem;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: space-between;
-  `,
-  Brand: styled.a<{ $theme: Theme }>`
-    display: inline-flex;
-    color: ${({ $theme }) => $theme.primaryTextColor};
-    align-items: center;
-    gap: 0.8rem;
-    font-size: 1.05rem;
-    font-weight: 700;
-    text-decoration: none;
-
-    span {
-      display: grid;
-      width: 2.35rem;
-      height: 2.35rem;
-      color: #ffffff;
-      border-radius: 9px;
-      background: ${({ $theme }) => $theme.accentColor};
-      place-items: center;
-      font-size: 0.9rem;
-      letter-spacing: -0.04em;
-    }
+  Outer: styled.div<{ $theme: Theme }>`
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid ${({ $theme }) => $theme.borderColor};
+    border-bottom: 1px solid ${({ $theme }) => $theme.borderColor};
   `,
   Links: styled.nav<{ $theme: Theme }>`
     display: flex;
+    width: min(1000px, calc(100% - 3rem));
+    min-height: 3rem;
+    margin: 0 auto;
+    padding: 0 3rem;
+    box-sizing: border-box;
     align-items: center;
-    gap: 1.6rem;
 
     a {
       color: ${({ $theme }) => $theme.secondaryTextColor};
-      font-size: 0.95rem;
-      font-weight: 600;
+      font-size: 0.82rem;
+      font-weight: 700;
       text-decoration: none;
-      transition: color 0.2s ease;
+    }
+
+    a + a::before {
+      margin: 0 0.75rem;
+      color: ${({ $theme }) => $theme.borderColor};
+      content: '/';
     }
 
     a:hover,
@@ -65,8 +39,11 @@ const N = {
       color: ${({ $theme }) => $theme.accentColor};
     }
 
-    @media (max-width: 680px) {
-      display: none;
+    @media (max-width: 720px) {
+      width: min(100% - 2rem, 1000px);
+      padding: 0;
+      overflow-x: auto;
+      white-space: nowrap;
     }
   `,
 };
@@ -75,19 +52,13 @@ export const Navigation = () => {
   const { theme } = useContext(AppContext);
 
   return (
-    <N.Header $theme={theme}>
-      <N.Inner>
-        <N.Brand href="#top" $theme={theme} aria-label="Back to top">
-          <span>XT</span>
-          Xinrui Tang
-        </N.Brand>
-        <N.Links $theme={theme} aria-label="Primary navigation">
-          <a href="#about">About</a>
-          <a href="#publications">Publications</a>
-          <a href="#projects">Projects</a>
-          <a href="#education">Education</a>
-        </N.Links>
-      </N.Inner>
-    </N.Header>
+    <N.Outer $theme={theme}>
+      <N.Links $theme={theme} aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+      </N.Links>
+    </N.Outer>
   );
 };

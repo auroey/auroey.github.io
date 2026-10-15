@@ -1,5 +1,5 @@
 html {
-  font-size: 12px;
+  font-size: 16px;
   font-family:
     'Inter',
     'SF Pro Display',
@@ -10,9 +10,9 @@ html {
     'Helvetica Neue',
     Arial,
     sans-serif;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.012em;
   scroll-behavior: smooth;
-  scroll-padding-top: 7rem;
+  scroll-padding-top: 1.5rem;
 }
 
 body {
@@ -21,46 +21,66 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-width: 320px;
+  background: #ffffff;
 }
 
 .app {
   margin: 0;
   width: 100vw;
   min-height: 100vh;
-  text-align: center;
+  text-align: left;
   overflow-x: hidden;
 }
 
 .hero {
   position: relative;
   z-index: 1;
-  width: min(1040px, calc(100% - 3rem));
-  min-height: 76vh;
+  display: grid;
+  width: min(1000px, calc(100% - 3rem));
   margin: 0 auto;
-  padding: 11rem 0 6rem;
+  padding: 2.75rem 3rem 2.25rem;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
   text-align: left;
 }
 
+.hero-avatar {
+  width: 8.5rem;
+  height: 8.5rem;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
 .hero-content {
-  width: min(860px, 100%);
+  min-width: 0;
 }
 
 .hero-focus {
-  margin: 1.25rem 0 2rem;
-  color: #59636e;
-  font-size: 1.1rem;
-  line-height: 1.6;
+  margin: 0.45rem 0 1rem;
+  color: #526174;
+  font-size: 0.93rem;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 @media (max-width: 720px) {
   .hero {
-    min-height: 72vh;
-    padding-top: 9rem;
+    width: min(100% - 2rem, 1000px);
+    padding: 2rem 0 1.75rem;
+    grid-template-columns: 5.75rem minmax(0, 1fr);
+    gap: 1.25rem;
   }
 
+  .hero-avatar {
+    width: 5.75rem;
+    height: 5.75rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
 }

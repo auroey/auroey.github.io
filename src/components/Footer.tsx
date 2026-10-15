@@ -9,9 +9,13 @@ import { Theme } from 'types';
 const Container = styled.footer<{ $theme: Theme }>`
   position: relative;
   z-index: 1;
-  padding: 0 1.5rem 3rem;
+  width: min(1000px, calc(100% - 3rem));
+  margin: 0 auto;
+  padding: 1.75rem 3rem 3rem;
+  border-top: 1px solid ${({ $theme }) => $theme.borderColor};
+  box-sizing: border-box;
   color: ${({ $theme }) => $theme.tertiaryTextColor};
-  font-size: 1rem;
+  font-size: 0.76rem;
 
   a {
     display: inline-block;
@@ -25,6 +29,11 @@ const Container = styled.footer<{ $theme: Theme }>`
       width: 100%;
       height: 100%;
     }
+  }
+
+  @media (max-width: 720px) {
+    width: min(100% - 2rem, 1000px);
+    padding: 1.5rem 0 2.5rem;
   }
 `;
 

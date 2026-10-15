@@ -7,19 +7,20 @@ import { Theme } from 'types';
 
 const sharedStyles = css`
   transition: color 0.5s linear;
-  font-weight: 600;
   position: relative;
   z-index: 1;
-  letter-spacing: -0.02em;
 `;
 
 const C = {
   Name: styled.h1<{ $theme: Theme }>`
     ${sharedStyles};
-    font-size: clamp(4.5rem, 8vw, 7rem);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2.45rem, 6vw, 3.55rem);
+    line-height: 1.05;
     margin: 0;
     color: ${({ $theme }) => $theme.primaryTextColor};
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: -0.035em;
     text-wrap: balance;
   `,
 };

@@ -1,14 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import {
-  Buttons,
-  Content,
-  Footer,
-  Navigation,
-  Particles,
-  ProfileSections,
-  Toggle,
-} from 'components';
+import { Buttons, Content, Footer, Navigation, ProfileSections } from 'components';
 
 import './App.scss';
 import { AppProvider } from './AppContext';
@@ -38,16 +30,19 @@ export const App = () => {
   return (
     <AppProvider config={config} isMobile={isMobile}>
       <main className="app" id="top">
-        <Particles />
-        <Navigation />
-        <Toggle />
-        <section className="hero">
+        <header className="hero">
+          <img
+            className="hero-avatar"
+            src="https://avatars.githubusercontent.com/u/110877557?v=4"
+            alt="Xinrui Tang"
+          />
           <div className="hero-content">
             <Content />
             <p className="hero-focus">{config.researchFocus.join(' · ')}</p>
             <Buttons />
           </div>
-        </section>
+        </header>
+        <Navigation />
         <ProfileSections />
         <Footer />
       </main>

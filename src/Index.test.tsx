@@ -1,6 +1,6 @@
 import { act } from 'react';
 
-import { configure, fireEvent, render, screen } from '@testing-library/react';
+import { configure, render, screen } from '@testing-library/react';
 
 import '__mocks__/matchMedia';
 import { App } from 'App/App';
@@ -205,26 +205,12 @@ describe('application tests', () => {
     checkButton(parent, child, /^Email$/, 'mailto:xrt404@gmail.com');
   });
 
-  it('should toggle between the dark and light themes', () => {
-    const toggle = screen.getByTestId('toggle');
-    const particles = screen.getByTestId('particles');
-
-    expect(toggle).toBeVisible();
-    expect(toggle).toHaveAccessibleName();
-    expect(toggle).toHaveAccessibleDescription();
-
-    expect(particles).toBeVisible();
-
-    // site should default to the light theme
-    expect(toggle).not.toBeChecked();
-    expect(toggle).toHaveAccessibleName(/currently in light mode/i);
-
-    // click the toggle
-    fireEvent.click(toggle);
-
-    // the dark theme should be visible
-    expect(toggle).toBeChecked();
-    expect(toggle).toHaveAccessibleName(/currently in dark mode/i);
+  it('should render a light academic profile header', () => {
+    expect(screen.getByRole('img', { name: 'Xinrui Tang' })).toHaveAttribute(
+      'src',
+      'https://avatars.githubusercontent.com/u/110877557?v=4',
+    );
+    expect(screen.queryByTestId('toggle')).not.toBeInTheDocument();
   });
 
   it('should render full footer on desktop', () => {
@@ -233,7 +219,6 @@ describe('application tests', () => {
     expect(footer).toHaveTextContent(/^© 2026 Xinrui Tang$/);
   });
 });
-
 describe('app context tests', () => {
   it('should render partial footer on mobile', async () => {
     await act(() =>
@@ -264,44 +249,5 @@ describe('app context tests', () => {
 
       expect(state).toEqual({ ...mockState, theme: themes.light });
     });
-  });
-});
-
-describe('local storage tests', () => {
-  beforeEach(() => {
-    localStorage.clear();
-  });
-
-  // https://testing-library.com/docs/react-testing-library/api/#rerender
-  it('should persist the light theme through an app re-render', async () => {
-    const { rerender } = await act(() => render(<App />));
-
-    expect(localStorage.getItem('theme')).toBeNull();
-    localStorage.setItem('theme', 'light');
-
-    // re-render the app and check the theme
-    act(() => {
-      rerender(<App />);
-    });
-    const particles = screen.getByTestId('particles');
-
-    expect(localStorage.getItem('theme')).toEqual('light');
-    expect(particles).toBeVisible();
-    expect(screen.getByTestId('toggle')).toHaveAccessibleName(
-      /currently in light mode/i,
-    );
-  });
-
-  it('should change local storage value when toggle is clicked', async () => {
-    // set local storage item and render the app
-    localStorage.setItem('theme', 'light');
-    await act(() => render(<App />));
-
-    // click the toggle
-    const toggle = screen.getByTestId('toggle');
-    fireEvent.click(toggle);
-
-    // check that the local storage item has been changed
-    expect(localStorage.getItem('theme')).toEqual('dark');
   });
 });

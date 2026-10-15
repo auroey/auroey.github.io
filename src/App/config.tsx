@@ -65,7 +65,7 @@ export const config: Config = {
       name: 'IMVA',
       description:
         'An interactive mixed-reality anatomy learning project built with Unity and MRTK3.',
-      href: 'https://github.com/auroey/mr-IMVA-unity',
+      href: 'https://github.com/auroey/IMVA',
       tags: ['Unity', 'MRTK3', 'Mixed Reality'],
     },
     {

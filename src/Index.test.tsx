@@ -104,7 +104,7 @@ describe('application tests', () => {
     expect(screen.getByRole('heading', { name: 'Projects' })).toBeVisible();
     expect(screen.getByRole('link', { name: /IMVA/i })).toHaveAttribute(
       'href',
-      'https://github.com/auroey/mr-IMVA-unity',
+      'https://github.com/auroey/IMVA',
     );
     expect(screen.getByRole('heading', { name: 'Education' })).toBeVisible();
     expect(screen.getByText('Zhejiang University')).toBeVisible();

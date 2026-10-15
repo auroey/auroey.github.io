@@ -6,18 +6,13 @@ export const config: Config = {
     display: 'Xinrui Tang',
   },
   title: {
-    display: 'AI Researcher · Generative Models · World Models',
+    display: 'AI Researcher · Generative Models · Multimodal AI · World Models',
   },
   introduction: [
     'I study intelligent systems that perceive, generate, and interact with virtual worlds.',
-    'My current interests include generative models, world models, reinforcement learning, spatial memory, and controllable world generation.',
+    'My research focuses on generative models, multimodal AI, and world models.',
   ],
-  researchFocus: [
-    'Generative models',
-    'Reinforcement learning',
-    'World models',
-    'Spatial reasoning',
-  ],
+  researchFocus: ['Generative models', 'Multimodal AI', 'World models'],
   education: [
     {
       institution: 'Zhejiang University',

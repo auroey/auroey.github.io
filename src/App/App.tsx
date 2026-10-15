@@ -33,8 +33,8 @@ export const App = () => {
         <header className="hero">
           <img
             className="hero-avatar"
-            src="https://avatars.githubusercontent.com/u/110877557?v=4"
-            alt="Xinrui Tang"
+            src={`${process.env.PUBLIC_URL ?? ''}/images/xinrui-tang.jpg`}
+            alt="Xinrui Tang portrait"
           />
           <div className="hero-content">
             <Content />

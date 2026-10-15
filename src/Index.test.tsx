@@ -206,9 +206,11 @@ describe('application tests', () => {
   });
 
   it('should render a light academic profile header', () => {
-    expect(screen.getByRole('img', { name: 'Xinrui Tang' })).toHaveAttribute(
+    expect(
+      screen.getByRole('img', { name: 'Xinrui Tang portrait' }),
+    ).toHaveAttribute(
       'src',
-      'https://avatars.githubusercontent.com/u/110877557?v=4',
+      '/images/xinrui-tang.jpg',
     );
     expect(screen.queryByTestId('toggle')).not.toBeInTheDocument();
   });

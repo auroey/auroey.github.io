@@ -12,10 +12,12 @@ export interface EducationItem {
   institution: string;
   detail: string;
   period: string;
-  advisor?: {
+  advisorLabel?: string;
+  advisors?: {
+    affiliation?: string;
     href: string;
     name: string;
-  };
+  }[];
 }
 
 export interface ProjectItem {

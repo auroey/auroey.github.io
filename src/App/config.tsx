@@ -20,15 +20,36 @@ export const config: Config = {
       institution: 'Zhejiang University',
       detail: "Master's Student in Big Data Technology and Engineering",
       period: 'Sep 2026 – Present',
-      advisor: {
-        name: 'Chunhua Shen (沈春华)',
-        href: 'https://cshen.github.io/',
-      },
+      advisorLabel: 'Advisor',
+      advisors: [
+        {
+          name: 'Chunhua Shen (沈春华)',
+          href: 'https://cshen.github.io/',
+        },
+      ],
     },
     {
       institution: 'Northeastern University',
       detail: 'Biomedical Engineering',
       period: '2022 – Jun 2026',
+      advisorLabel: 'Undergraduate advisors',
+      advisors: [
+        {
+          name: 'Zhiqiong Wang (王之琼)',
+          affiliation: 'Northeastern University',
+          href: 'https://www.bmie.neu.edu.cn/2021/0228/c8375a187369/pagem.htm',
+        },
+        {
+          name: 'Chao Li (李超)',
+          affiliation: 'University of Cambridge',
+          href: 'https://www.damtp.cam.ac.uk/person/cl647',
+        },
+        {
+          name: 'Cheng Wei (魏程)',
+          affiliation: 'University of Dundee',
+          href: 'https://www.dundee.ac.uk/people/cheng-wei',
+        },
+      ],
     },
     {
       institution: 'University of Dundee',

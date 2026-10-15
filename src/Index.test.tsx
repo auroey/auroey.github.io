@@ -115,8 +115,26 @@ describe('application tests', () => {
     ).toHaveLength(1);
     expect(screen.getByText('Sep 2026 – Present')).toBeVisible();
     expect(
-      screen.getByRole('link', { name: 'Advisor: Chunhua Shen (沈春华)' }),
+      screen.getByRole('link', { name: 'Chunhua Shen (沈春华)' }),
     ).toHaveAttribute('href', 'https://cshen.github.io/');
+    expect(
+      screen.getByRole('link', {
+        name: 'Zhiqiong Wang (王之琼) · Northeastern University',
+      }),
+    ).toHaveAttribute(
+      'href',
+      'https://www.bmie.neu.edu.cn/2021/0228/c8375a187369/pagem.htm',
+    );
+    expect(
+      screen.getByRole('link', {
+        name: 'Chao Li (李超) · University of Cambridge',
+      }),
+    ).toHaveAttribute('href', 'https://www.damtp.cam.ac.uk/person/cl647');
+    expect(
+      screen.getByRole('link', {
+        name: 'Cheng Wei (魏程) · University of Dundee',
+      }),
+    ).toHaveAttribute('href', 'https://www.dundee.ac.uk/people/cheng-wei');
     expect(screen.queryByText('Turtle Soup AI')).not.toBeInTheDocument();
   });
 

@@ -175,9 +175,20 @@ const S = {
       font-size: 15px;
     }
 
+    .advisor-list {
+      display: grid;
+      gap: 0.15rem;
+      margin-top: 0.28rem;
+      color: ${({ $theme }) => $theme.secondaryTextColor};
+      font-size: 15px;
+    }
+
+    .advisor-label {
+      font-weight: 600;
+    }
+
     a {
       display: inline-block;
-      margin-top: 0.22rem;
       color: ${({ $theme }) => $theme.accentColor};
       font-size: 15px;
       font-weight: 600;
@@ -273,14 +284,23 @@ export const ProfileSections = () => {
               <span>
                 <strong>{item.institution}</strong>
                 <small>{item.detail}</small>
-                {item.advisor && (
-                  <a
-                    href={item.advisor.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Advisor: {item.advisor.name}
-                  </a>
+                {item.advisors && item.advisors.length > 0 && (
+                  <span className="advisor-list">
+                    <span className="advisor-label">
+                      {item.advisorLabel ?? 'Advisor'}:
+                    </span>
+                    {item.advisors.map((advisor) => (
+                      <a
+                        key={advisor.name}
+                        href={advisor.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {advisor.name}
+                        {advisor.affiliation && ` · ${advisor.affiliation}`}
+                      </a>
+                    ))}
+                  </span>
                 )}
               </span>
             </S.Education>

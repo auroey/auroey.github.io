@@ -1,8 +1,15 @@
 html {
   font-size: 12px;
   font-family:
-    'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+    'Inter',
+    'SF Pro Display',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
   letter-spacing: -0.01em;
 }
 
@@ -25,7 +32,7 @@ body {
 .hero {
   position: relative;
   z-index: 1;
-  min-height: 92vh;
+  min-height: 88vh;
   padding: 4rem 1.5rem;
   box-sizing: border-box;
   display: flex;
@@ -36,12 +43,18 @@ body {
 
 .explore {
   margin-top: 3rem;
-  color: #8fa3b8;
+  color: #0969da;
   text-decoration: none;
   font-size: 1.05rem;
   letter-spacing: 0.04em;
   position: relative;
   z-index: 1;
+  font-weight: 600;
+  text-underline-offset: 0.3em;
+}
+
+.explore:hover {
+  color: #0550ae;
 }
 
 @media (max-width: 720px) {

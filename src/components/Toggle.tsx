@@ -39,9 +39,11 @@ const T = {
     width: 1.5rem;
     height: 1.5rem;
     padding: 0.75rem;
-    background-color: ${({ $theme }) => $theme.shadowColor};
-    border-radius: 25%;
-    box-shadow: 0 0 0.25rem 0.25rem rgba(128, 128, 128, 0.25);
+    color: ${({ $theme }) => $theme.accentColor};
+    background-color: ${({ $theme }) => $theme.surfaceColor};
+    border: 1px solid ${({ $theme }) => $theme.borderColor};
+    border-radius: 10px;
+    box-shadow: 0 3px 12px ${({ $theme }) => $theme.shadowColor};
     align-items: center;
     justify-content: center;
     transition: background-color 0.5s linear;

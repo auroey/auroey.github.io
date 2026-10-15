@@ -20,7 +20,8 @@ const C = {
     margin: 0;
     color: ${({ $theme }) => $theme.primaryTextColor};
     font-weight: 700;
-    @media only screen and (max-device-width: 820px) and (-webkit-min-device-pixel-ratio: 2) {
+    text-wrap: balance;
+    @media only screen and (max-width: 720px) {
       font-size: 4.5rem;
     }
   `,
@@ -31,7 +32,8 @@ const C = {
     color: ${({ $theme }) => $theme.secondaryTextColor};
     font-weight: 400;
     letter-spacing: 0.02em;
-    @media only screen and (max-device-width: 820px) and (-webkit-min-device-pixel-ratio: 2) {
+    text-wrap: balance;
+    @media only screen and (max-width: 720px) {
       font-size: 1.8rem;
     }
   `,

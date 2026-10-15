@@ -25,7 +25,7 @@ type AppState = AppContextInterface;
 const initialState: AppState = {
   config: {} as Config,
   isMobile: false,
-  theme: themes.dark,
+  theme: themes.light,
   setTheme: () => undefined,
 };
 

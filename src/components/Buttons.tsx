@@ -31,8 +31,9 @@ const Container = styled.div<{ $theme: Theme }>`
     position: relative;
     z-index: 1;
     border-radius: 12px;
-    border: 1px solid ${({ $theme }) => $theme.tertiaryTextColor}40;
-    backdrop-filter: blur(10px);
+    border: 1px solid ${({ $theme }) => $theme.borderColor};
+    background: ${({ $theme }) => $theme.surfaceColor};
+    box-shadow: 0 4px 14px ${({ $theme }) => $theme.shadowColor};
   }
 
   .icon {
@@ -47,9 +48,10 @@ const Container = styled.div<{ $theme: Theme }>`
   }
 
   .button:hover {
-    background-color: ${({ $theme }) => $theme.shadowColor};
+    color: ${({ $theme }) => $theme.accentColor};
+    background-color: ${({ $theme }) => $theme.accentMutedColor};
     box-shadow: 0 8px 24px ${({ $theme }) => $theme.shadowColor};
-    border-color: ${({ $theme }) => $theme.primaryTextColor}60;
+    border-color: ${({ $theme }) => $theme.accentColor};
     transform: translateY(-2px);
   }
 
@@ -69,7 +71,7 @@ const Container = styled.div<{ $theme: Theme }>`
     display: none;
   }
 
-  @media only screen and (max-device-width: 820px) and (-webkit-min-device-pixel-ratio: 2) {
+  @media only screen and (max-width: 720px) {
     .button-container {
       height: 5rem;
       width: 5rem;

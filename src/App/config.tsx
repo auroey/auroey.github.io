@@ -22,8 +22,8 @@ export const config: Config = {
   education: [
     {
       institution: 'Zhejiang University',
-      detail: 'Current studies',
-      period: 'Sep 2026 – present',
+      detail: "Master's Student in Big Data Technology and Engineering",
+      period: 'Sep 2026 – Present',
     },
     {
       institution: 'Northeastern University',

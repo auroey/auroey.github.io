@@ -13,6 +13,9 @@ node_modules/
 # Coverage directory used by Jest
 /coverage
 
+# Local browser audit artifacts
+/.playwright-cli
+
 # TypeScript compiled output
 /dist
 /out

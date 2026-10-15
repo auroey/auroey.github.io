@@ -30,7 +30,7 @@ const mockState = {
     ],
   },
   isMobile: false,
-  theme: themes.dark,
+  theme: themes.light,
   setTheme: () => undefined,
 };
 
@@ -113,11 +113,14 @@ describe('application tests', () => {
       'href',
       'https://github.com/auroey/mr-IMVA-unity',
     );
-    expect(
-      screen.getByRole('heading', { name: 'Education' }),
-    ).toBeVisible();
+    expect(screen.getByRole('heading', { name: 'Education' })).toBeVisible();
     expect(screen.getByText('Zhejiang University')).toBeVisible();
-    expect(screen.getByText('Sep 2026 – present')).toBeVisible();
+    expect(
+      screen.getByText(
+        "Master's Student in Big Data Technology and Engineering",
+      ),
+    ).toBeVisible();
+    expect(screen.getByText('Sep 2026 – Present')).toBeVisible();
     expect(screen.queryByText('Turtle Soup AI')).not.toBeInTheDocument();
   });
 
@@ -132,10 +135,7 @@ describe('application tests', () => {
       screen.getByRole('link', {
         name: /Sex, Age, and Race Representation/i,
       }),
-    ).toHaveAttribute(
-      'href',
-      'https://doi.org/10.1016/j.jelekin.2026.103218',
-    );
+    ).toHaveAttribute('href', 'https://doi.org/10.1016/j.jelekin.2026.103218');
   });
 
   it('should render GitHub button', () => {
@@ -174,16 +174,16 @@ describe('application tests', () => {
 
     expect(particles).toBeVisible();
 
-    // site should default to the dark theme
-    expect(toggle).toBeChecked();
-    expect(toggle).toHaveAccessibleName(/currently in dark mode/i);
+    // site should default to the light theme
+    expect(toggle).not.toBeChecked();
+    expect(toggle).toHaveAccessibleName(/currently in light mode/i);
 
     // click the toggle
     fireEvent.click(toggle);
 
-    // the light theme should be visible
-    expect(toggle).not.toBeChecked();
-    expect(toggle).toHaveAccessibleName(/currently in light mode/i);
+    // the dark theme should be visible
+    expect(toggle).toBeChecked();
+    expect(toggle).toHaveAccessibleName(/currently in dark mode/i);
   });
 
   it('should render full footer on desktop', () => {

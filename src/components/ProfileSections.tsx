@@ -17,19 +17,26 @@ const S = {
   Section: styled.section<{ $theme: Theme }>`
     margin-top: 2rem;
     padding: 2.5rem;
-    border: 1px solid ${({ $theme }) => $theme.tertiaryTextColor}35;
-    border-radius: 20px;
-    background: ${({ $theme }) =>
-      $theme.key === 'dark'
-        ? 'rgba(15, 20, 35, 0.72)'
-        : 'rgba(255, 255, 255, 0.72)'};
-    backdrop-filter: blur(16px);
-    box-shadow: 0 18px 60px ${({ $theme }) => $theme.shadowColor};
+    border: 1px solid ${({ $theme }) => $theme.borderColor};
+    border-radius: 16px;
+    background: ${({ $theme }) => $theme.surfaceColor};
+    box-shadow: 0 12px 36px ${({ $theme }) => $theme.shadowColor};
   `,
   Heading: styled.h2<{ $theme: Theme }>`
     margin: 0 0 1.25rem;
     color: ${({ $theme }) => $theme.primaryTextColor};
     font-size: 2rem;
+    letter-spacing: -0.02em;
+
+    &::after {
+      display: block;
+      width: 2.5rem;
+      height: 3px;
+      margin-top: 0.65rem;
+      border-radius: 99px;
+      background: ${({ $theme }) => $theme.accentColor};
+      content: '';
+    }
   `,
   Text: styled.p<{ $theme: Theme }>`
     margin: 0.75rem 0;
@@ -38,13 +45,13 @@ const S = {
     line-height: 1.8;
 
     a {
-      color: ${({ $theme }) => $theme.primaryTextColor};
-      text-decoration-color: ${({ $theme }) => $theme.tertiaryTextColor};
+      color: ${({ $theme }) => $theme.accentColor};
+      text-decoration-color: ${({ $theme }) => $theme.accentColor}70;
       text-underline-offset: 0.2em;
     }
 
     a:hover {
-      text-decoration-color: ${({ $theme }) => $theme.primaryTextColor};
+      text-decoration-color: ${({ $theme }) => $theme.accentColor};
     }
   `,
   Tags: styled.div`
@@ -55,9 +62,9 @@ const S = {
   Tag: styled.span<{ $theme: Theme }>`
     padding: 0.55rem 0.85rem;
     border-radius: 999px;
-    color: ${({ $theme }) => $theme.primaryTextColor};
-    border: 1px solid ${({ $theme }) => $theme.tertiaryTextColor}50;
-    background: ${({ $theme }) => $theme.shadowColor};
+    color: ${({ $theme }) => $theme.accentColor};
+    border: 1px solid ${({ $theme }) => $theme.accentColor}35;
+    background: ${({ $theme }) => $theme.accentMutedColor};
     font-size: 0.95rem;
   `,
   Grid: styled.div`
@@ -73,20 +80,18 @@ const S = {
     display: block;
     padding: 1.4rem;
     border-radius: 14px;
-    border: 1px solid ${({ $theme }) => $theme.tertiaryTextColor}35;
+    border: 1px solid ${({ $theme }) => $theme.borderColor};
     color: ${({ $theme }) => $theme.primaryTextColor};
     text-decoration: none;
-    background: ${({ $theme }) =>
-      $theme.key === 'dark'
-        ? 'rgba(255, 255, 255, 0.035)'
-        : 'rgba(0, 0, 0, 0.025)'};
+    background: ${({ $theme }) => $theme.surfaceColor};
     transition:
       transform 0.2s ease,
       border-color 0.2s ease;
 
     &:hover {
       transform: translateY(-3px);
-      border-color: ${({ $theme }) => $theme.primaryTextColor}70;
+      border-color: ${({ $theme }) => $theme.accentColor};
+      box-shadow: 0 8px 24px ${({ $theme }) => $theme.shadowColor};
     }
 
     h3 {
@@ -109,7 +114,7 @@ const S = {
     justify-content: space-between;
     gap: 1rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid ${({ $theme }) => $theme.tertiaryTextColor}30;
+    border-bottom: 1px solid ${({ $theme }) => $theme.borderColor};
     color: ${({ $theme }) => $theme.secondaryTextColor};
 
     strong {
@@ -194,7 +199,10 @@ export const ProfileSections = () => {
         <S.Heading $theme={theme}>Education</S.Heading>
         <S.Timeline>
           {config.education.map((item) => (
-            <S.Education key={`${item.institution}-${item.period}`} $theme={theme}>
+            <S.Education
+              key={`${item.institution}-${item.period}`}
+              $theme={theme}
+            >
               <span>
                 <strong>{item.institution}</strong>
                 <br />

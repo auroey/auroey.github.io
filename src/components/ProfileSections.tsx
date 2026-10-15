@@ -14,6 +14,47 @@ const S = {
     padding: 0 0 8rem;
     text-align: left;
   `,
+  Overview: styled.div<{ $theme: Theme }>`
+    display: grid;
+    margin: -2.75rem 0 1.5rem;
+    border: 1px solid ${({ $theme }) => $theme.borderColor};
+    border-radius: 16px;
+    background: ${({ $theme }) => $theme.surfaceColor};
+    box-shadow: 0 12px 36px ${({ $theme }) => $theme.shadowColor};
+    grid-template-columns: repeat(3, 1fr);
+
+    @media (max-width: 600px) {
+      margin-top: -1.5rem;
+      grid-template-columns: 1fr;
+    }
+  `,
+  Stat: styled.div<{ $theme: Theme }>`
+    padding: 1.6rem 1.8rem;
+
+    & + & {
+      border-left: 1px solid ${({ $theme }) => $theme.borderColor};
+    }
+
+    strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: ${({ $theme }) => $theme.primaryTextColor};
+      font-size: 1.8rem;
+      letter-spacing: -0.04em;
+    }
+
+    span {
+      color: ${({ $theme }) => $theme.secondaryTextColor};
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      & + & {
+        border-top: 1px solid ${({ $theme }) => $theme.borderColor};
+        border-left: 0;
+      }
+    }
+  `,
   Section: styled.section<{ $theme: Theme }>`
     margin-top: 1.5rem;
     padding: 3rem;
@@ -60,6 +101,51 @@ const S = {
 
     a:hover {
       text-decoration-color: ${({ $theme }) => $theme.accentColor};
+    }
+  `,
+  AboutGrid: styled.div`
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(16rem, 0.8fr);
+    gap: 3rem;
+
+    @media (max-width: 720px) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  `,
+  FocusPanel: styled.aside<{ $theme: Theme }>`
+    padding: 1.5rem;
+    border: 1px solid ${({ $theme }) => $theme.borderColor};
+    border-radius: 12px;
+    background: ${({ $theme }) => $theme.accentMutedColor};
+
+    h3 {
+      margin: 0 0 1rem;
+      color: ${({ $theme }) => $theme.primaryTextColor};
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    ol {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    li {
+      display: grid;
+      padding: 0.8rem 0;
+      color: ${({ $theme }) => $theme.primaryTextColor};
+      border-top: 1px solid ${({ $theme }) => $theme.borderColor};
+      grid-template-columns: 2rem 1fr;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    li span {
+      color: ${({ $theme }) => $theme.accentColor};
+      font-size: 0.8rem;
     }
   `,
   Tags: styled.div`
@@ -132,6 +218,15 @@ const S = {
       font-size: 1.25rem;
       transition: transform 0.2s ease;
     }
+  `,
+  CardMeta: styled.span<{ $theme: Theme }>`
+    display: block;
+    margin-bottom: 1rem;
+    color: ${({ $theme }) => $theme.secondaryTextColor};
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   `,
   PublicationList: styled.div`
     display: grid;
@@ -233,6 +328,40 @@ const S = {
       flex-direction: column;
     }
   `,
+  Contact: styled.section<{ $theme: Theme }>`
+    display: flex;
+    margin-top: 1.5rem;
+    padding: 2.5rem 3rem;
+    border: 1px solid ${({ $theme }) => $theme.accentColor}55;
+    border-radius: 16px;
+    background: ${({ $theme }) => $theme.accentMutedColor};
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+
+    p {
+      margin: 0.35rem 0 0;
+      color: ${({ $theme }) => $theme.secondaryTextColor};
+      font-size: 1.05rem;
+    }
+
+    a {
+      flex: 0 0 auto;
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      color: #ffffff;
+      background: ${({ $theme }) => $theme.accentColor};
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      padding: 2rem;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  `,
 };
 
 export const ProfileSections = () => {
@@ -240,23 +369,46 @@ export const ProfileSections = () => {
 
   return (
     <S.Container>
+      <S.Overview $theme={theme} aria-label="Portfolio overview">
+        <S.Stat $theme={theme}>
+          <strong>{String(config.researchFocus.length).padStart(2, '0')}</strong>
+          <span>Research directions</span>
+        </S.Stat>
+        <S.Stat $theme={theme}>
+          <strong>{String(config.projects.length).padStart(2, '0')}</strong>
+          <span>Selected projects</span>
+        </S.Stat>
+        <S.Stat $theme={theme}>
+          <strong>{String(config.publications.length).padStart(2, '0')}</strong>
+          <span>Publications</span>
+        </S.Stat>
+      </S.Overview>
+
       <S.Section id="about" $theme={theme}>
         <S.SectionHeader>
           <S.Heading $theme={theme}>About</S.Heading>
           <S.Kicker $theme={theme}>01 · Profile</S.Kicker>
         </S.SectionHeader>
-        {config.introduction.map((paragraph) => (
-          <S.Text key={paragraph} $theme={theme}>
-            {paragraph}
-          </S.Text>
-        ))}
-        <S.Tags>
-          {config.researchFocus.map((focus) => (
-            <S.Tag key={focus} $theme={theme}>
-              {focus}
-            </S.Tag>
-          ))}
-        </S.Tags>
+        <S.AboutGrid>
+          <div>
+            {config.introduction.map((paragraph) => (
+              <S.Text key={paragraph} $theme={theme}>
+                {paragraph}
+              </S.Text>
+            ))}
+          </div>
+          <S.FocusPanel $theme={theme}>
+            <h3>Research focus</h3>
+            <ol>
+              {config.researchFocus.map((focus, index) => (
+                <li key={focus}>
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  {focus}
+                </li>
+              ))}
+            </ol>
+          </S.FocusPanel>
+        </S.AboutGrid>
       </S.Section>
 
       <S.Section id="projects" $theme={theme}>
@@ -265,7 +417,7 @@ export const ProfileSections = () => {
           <S.Kicker $theme={theme}>02 · Building</S.Kicker>
         </S.SectionHeader>
         <S.Grid>
-          {config.projects.map((project) => (
+          {config.projects.map((project, index) => (
             <S.Card
               key={project.name}
               href={project.href}
@@ -273,6 +425,9 @@ export const ProfileSections = () => {
               rel="noopener noreferrer"
               $theme={theme}
             >
+              <S.CardMeta $theme={theme}>
+                Project {String(index + 1).padStart(2, '0')}
+              </S.CardMeta>
               <S.CardTop $theme={theme}>
                 <h3>{project.name}</h3>
                 <span aria-hidden="true">↗</span>
@@ -338,6 +493,15 @@ export const ProfileSections = () => {
           ))}
         </S.Timeline>
       </S.Section>
+
+      <S.Contact id="contact" $theme={theme}>
+        <div>
+          <S.Kicker $theme={theme}>Contact</S.Kicker>
+          <S.Heading $theme={theme}>Let’s connect.</S.Heading>
+          <p>Email is the simplest way to reach me.</p>
+        </div>
+        <a href="mailto:xrt404@gmail.com">xrt404@gmail.com</a>
+      </S.Contact>
     </S.Container>
   );
 };

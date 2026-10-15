@@ -18,19 +18,19 @@ const Container = styled.div<{ $theme: Theme }>`
 
   .button-container {
     display: inline-block;
-    height: 4.75rem;
-    width: 4.75rem;
     margin: 0;
   }
 
   .button {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    height: 4.75rem;
-    width: 4.75rem;
+    min-height: 4.25rem;
+    padding: 0 1.35rem;
     color: ${({ $theme }) => $theme.primaryTextColor};
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
+    display: inline-flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
     text-decoration: none;
     position: relative;
     z-index: 1;
@@ -41,14 +41,19 @@ const Container = styled.div<{ $theme: Theme }>`
   }
 
   .icon {
-    height: 3.6rem;
-    width: 3.6rem;
-    padding: 0.6rem;
+    width: 1.55rem;
+    height: 1.55rem;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .icon_title {
-    font-size: 1.25rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 650;
   }
 
   .button:hover {
@@ -63,38 +68,10 @@ const Container = styled.div<{ $theme: Theme }>`
     transform: translateY(0) scale(0.98);
   }
 
-  .button-container .icon_title {
-    display: none;
-  }
-
-  .button-container:hover .icon_title {
-    display: initial;
-  }
-
-  .button-container:hover .icon {
-    display: none;
-  }
-
   @media only screen and (max-width: 720px) {
-    .button-container {
-      height: 5rem;
-      width: 5rem;
-      margin: 0;
-    }
-
     .button {
-      height: 5rem;
-      width: 5rem;
-    }
-
-    .icon {
-      height: 4rem;
-      width: 4rem;
-      padding: 0.5rem;
-    }
-
-    .icon_title {
-      font-size: 1rem;
+      min-height: 4rem;
+      padding: 0 1.05rem;
     }
   }
 `;

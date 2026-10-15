@@ -138,6 +138,18 @@ describe('application tests', () => {
     ).toHaveAttribute('href', 'https://doi.org/10.1016/j.jelekin.2026.103218');
   });
 
+  it('should derive portfolio overview counts from verified content', () => {
+    expect(screen.getByLabelText('Portfolio overview')).toHaveTextContent(
+      '03Research directions04Selected projects02Publications',
+    );
+  });
+
+  it('should render the verified contact email', () => {
+    expect(
+      screen.getByRole('link', { name: 'xrt404@gmail.com' }),
+    ).toHaveAttribute('href', 'mailto:xrt404@gmail.com');
+  });
+
   it('should render GitHub button', () => {
     const parent = screen.getByTestId('button-GitHub');
     const child = screen.getByTestId('GitHub');

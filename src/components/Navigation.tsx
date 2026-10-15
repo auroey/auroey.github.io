@@ -86,6 +86,7 @@ export const Navigation = () => {
           <a href="#projects">Projects</a>
           <a href="#publications">Publications</a>
           <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
         </N.Links>
       </N.Inner>
     </N.Header>

@@ -48,7 +48,7 @@ export const App = () => {
             <p className="hero-focus">{config.researchFocus.join(' · ')}</p>
             <Buttons />
             <a className="explore" href="#about">
-              Explore selected work <span aria-hidden="true">↓</span>
+              Explore research and selected work <span aria-hidden="true">↓</span>
             </a>
           </div>
         </section>

@@ -43,24 +43,9 @@ export const App = () => {
         <Toggle />
         <section className="hero">
           <div className="hero-content">
-            <p className="hero-kicker">Research portfolio</p>
             <Content />
-            <p className="hero-affiliation">
-              <span className="affiliation-degree">
-                {config.education[0].detail}
-              </span>
-              <span className="affiliation-separator" aria-hidden="true">
-                {' · '}
-              </span>
-              <span className="affiliation-institution">
-                {config.education[0].institution}
-              </span>
-            </p>
             <p className="hero-focus">{config.researchFocus.join(' · ')}</p>
             <Buttons />
-            <a className="explore" href="#about">
-              Explore research and selected work <span aria-hidden="true">↓</span>
-            </a>
           </div>
         </section>
         <ProfileSections />

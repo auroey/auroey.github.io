@@ -23,14 +23,13 @@ const Container = styled.div<{ $theme: Theme }>`
 
   .button {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    min-height: 4.25rem;
-    padding: 0 1.35rem;
+    width: 4.25rem;
+    height: 4.25rem;
     color: ${({ $theme }) => $theme.primaryTextColor};
     display: inline-flex;
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
-    gap: 0.65rem;
     text-decoration: none;
     position: relative;
     z-index: 1;
@@ -52,8 +51,15 @@ const Container = styled.div<{ $theme: Theme }>`
   }
 
   .icon_title {
-    font-size: 1rem;
-    font-weight: 650;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   .button:hover {
@@ -70,8 +76,8 @@ const Container = styled.div<{ $theme: Theme }>`
 
   @media only screen and (max-width: 720px) {
     .button {
-      min-height: 4rem;
-      padding: 0 1.05rem;
+      width: 4rem;
+      height: 4rem;
     }
   }
 `;
@@ -87,6 +93,7 @@ export const Buttons = () => {
             data-v2={`button-${display}`}
             className="button"
             aria-label={ariaLabel}
+            title={display}
             href={href}
             rel="noopener noreferrer"
             target="_blank"

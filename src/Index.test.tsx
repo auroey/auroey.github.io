@@ -83,43 +83,43 @@ describe('application tests', () => {
     checkContent(element, /^Xinrui Tang$/, undefined, true);
   });
 
-  it('should render the research title', () => {
-    const element = screen.getByTestId('title');
-
-    checkContent(
-      element,
-      /^AI Researcher in Generative Models, Multimodal AI & World Models$/,
-      undefined,
-      true,
-    );
+  it('should keep the hero concise', () => {
+    expect(screen.queryByTestId('title')).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(
+        'AI Researcher in Generative Models, Multimodal AI & World Models',
+      ),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getByText('Generative models · Multimodal AI · World models'),
+    ).toBeVisible();
+    expect(screen.queryByText('Explore research and selected work')).not.toBeInTheDocument();
   });
 
   it('should render link to source code', () => {
     const element = screen.getByTestId('source');
 
-    checkContent(
-      element,
-      /^Source$/,
+    expect(element).toBeVisible();
+    expect(element).toHaveAccessibleName('Homepage source code');
+    expect(element).toHaveAttribute(
+      'href',
       'https://github.com/auroey/auroey.github.io',
     );
   });
 
-  it('should render migrated biography and selected projects', () => {
-    expect(screen.getByRole('heading', { name: 'About' })).toBeVisible();
-    expect(
-      screen.getByText(/intelligent systems that perceive, generate/i),
-    ).toBeVisible();
+  it('should render verified projects and education', () => {
+    expect(screen.getByRole('heading', { name: 'Projects' })).toBeVisible();
     expect(screen.getByRole('link', { name: /IMVA/i })).toHaveAttribute(
       'href',
       'https://github.com/auroey/mr-IMVA-unity',
     );
     expect(screen.getByRole('heading', { name: 'Education' })).toBeVisible();
-    expect(screen.getAllByText('Zhejiang University')).toHaveLength(2);
+    expect(screen.getByText('Zhejiang University')).toBeVisible();
     expect(
       screen.getAllByText(
         "Master's Student in Big Data Technology and Engineering",
       ),
-    ).toHaveLength(2);
+    ).toHaveLength(1);
     expect(screen.getByText('Sep 2026 – Present')).toBeVisible();
     expect(screen.queryByText('Turtle Soup AI')).not.toBeInTheDocument();
   });
@@ -138,17 +138,29 @@ describe('application tests', () => {
     ).toHaveAttribute('href', 'https://doi.org/10.1016/j.jelekin.2026.103218');
   });
 
-  it('should derive portfolio overview counts from verified content', () => {
-    expect(screen.getByLabelText('Portfolio overview')).toHaveTextContent(
-      '03Research directions02Publications04Selected projects',
-    );
+  it('should omit redundant explanatory copy', () => {
+    expect(screen.queryByText('Research portfolio')).not.toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'About' })).toBeVisible();
+    expect(
+      screen.getByText(/intelligent systems that perceive, generate/i),
+    ).toBeVisible();
+    expect(
+      screen.queryByText(/My research focuses on generative models/i),
+    ).not.toBeInTheDocument();
+    expect(screen.queryByText('Research directions')).not.toBeInTheDocument();
+    expect(screen.queryByText('Let’s connect.')).not.toBeInTheDocument();
   });
 
   it('should prioritize publications before projects and education', () => {
+    const about = screen.getByRole('heading', { name: 'About' });
     const publications = screen.getByRole('heading', { name: 'Publications' });
-    const projects = screen.getByRole('heading', { name: 'Selected projects' });
+    const projects = screen.getByRole('heading', { name: 'Projects' });
     const education = screen.getByRole('heading', { name: 'Education' });
 
+    expect(
+      about.compareDocumentPosition(publications) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
     expect(
       publications.compareDocumentPosition(projects) &
         Node.DOCUMENT_POSITION_FOLLOWING,
@@ -161,7 +173,9 @@ describe('application tests', () => {
 
   it('should render the verified contact email', () => {
     expect(
-      screen.getByRole('link', { name: 'xrt404@gmail.com' }),
+      screen.getByRole('link', {
+        name: 'Email contact (opens in new window)',
+      }),
     ).toHaveAttribute('href', 'mailto:xrt404@gmail.com');
   });
 
@@ -216,7 +230,7 @@ describe('application tests', () => {
   it('should render full footer on desktop', () => {
     const footer = screen.getByTestId('footer');
 
-    expect(footer).toHaveTextContent(/^Built by Xinrui Tang · Source$/);
+    expect(footer).toHaveTextContent(/^© 2026 Xinrui Tang$/);
   });
 });
 
@@ -235,7 +249,7 @@ describe('app context tests', () => {
     // partial footer should now be visible
     const footer = screen.getByTestId('footer');
 
-    expect(footer).toHaveTextContent(/^Built by Xinrui Tang · Source$/);
+    expect(footer).toHaveTextContent(/^© 2026 Xinrui Tang$/);
   });
 
   describe('reducer tests', () => {

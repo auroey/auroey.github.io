@@ -6,15 +6,14 @@ export const config: Config = {
     display: 'Xinrui Tang',
   },
   title: {
-    display: 'AI Researcher · Generative Models · Embodied Intelligence',
+    display: 'AI Researcher · Generative Models · World Models',
   },
   introduction: [
     'I study intelligent systems that perceive, generate, and interact with virtual worlds.',
-    'My current interests include generative models, embodied intelligence, reinforcement learning, spatial memory, and controllable world generation.',
+    'My current interests include generative models, world models, reinforcement learning, spatial memory, and controllable world generation.',
   ],
   researchFocus: [
     'Generative models',
-    'Embodied intelligence',
     'Reinforcement learning',
     'World models',
     'Spatial reasoning',

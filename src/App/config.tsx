@@ -20,6 +20,10 @@ export const config: Config = {
       institution: 'Zhejiang University',
       detail: "Master's Student in Big Data Technology and Engineering",
       period: 'Sep 2026 – Present',
+      advisor: {
+        name: 'Chunhua Shen (沈春华)',
+        href: 'https://cshen.github.io/',
+      },
     },
     {
       institution: 'Northeastern University',
@@ -87,13 +91,7 @@ export const config: Config = {
       name: 'google-scholar',
       display: 'Google Scholar',
       ariaLabel: 'Google Scholar publications (opens in new window)',
-      href: 'https://scholar.google.com/scholar?q=%22Xinrui+Tang%22+%22Hierarchical+Brain+Structure+Modeling%22',
-    },
-    {
-      name: 'lab',
-      display: 'Lab',
-      ariaLabel: 'CAD and CG Lab website (opens in new window)',
-      href: 'http://www.cad.zju.edu.cn/',
+      href: 'https://scholar.google.com/citations?user=f1FFPwYAAAAJ&hl=en',
     },
     {
       name: 'github',
@@ -106,6 +104,12 @@ export const config: Config = {
       display: 'LinkedIn',
       ariaLabel: 'LinkedIn profile (opens in new window)',
       href: 'https://www.linkedin.com/in/kyle-tang-8a4752395',
+    },
+    {
+      name: 'x-twitter',
+      display: 'X / Twitter',
+      ariaLabel: 'X profile (opens in new window)',
+      href: 'https://x.com/AuroeyWert',
     },
   ],
 };

@@ -170,8 +170,24 @@ const S = {
     }
 
     small {
+      display: block;
       color: ${({ $theme }) => $theme.secondaryTextColor};
       font-size: 15px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 0.22rem;
+      color: ${({ $theme }) => $theme.accentColor};
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+
+      &:hover,
+      &:focus-visible {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
     }
 
     @media (max-width: 560px) {
@@ -257,6 +273,15 @@ export const ProfileSections = () => {
               <span>
                 <strong>{item.institution}</strong>
                 <small>{item.detail}</small>
+                {item.advisor && (
+                  <a
+                    href={item.advisor.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Advisor: {item.advisor.name}
+                  </a>
+                )}
               </span>
             </S.Education>
           ))}

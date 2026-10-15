@@ -114,6 +114,9 @@ describe('application tests', () => {
       ),
     ).toHaveLength(1);
     expect(screen.getByText('Sep 2026 – Present')).toBeVisible();
+    expect(
+      screen.getByRole('link', { name: 'Advisor: Chunhua Shen (沈春华)' }),
+    ).toHaveAttribute('href', 'https://cshen.github.io/');
     expect(screen.queryByText('Turtle Soup AI')).not.toBeInTheDocument();
   });
 
@@ -181,12 +184,13 @@ describe('application tests', () => {
   it('should render verified academic links', () => {
     expect(screen.getByTestId('button-Google Scholar')).toHaveAttribute(
       'href',
-      'https://scholar.google.com/scholar?q=%22Xinrui+Tang%22+%22Hierarchical+Brain+Structure+Modeling%22',
+      'https://scholar.google.com/citations?user=f1FFPwYAAAAJ&hl=en',
     );
-    expect(screen.getByTestId('button-Lab')).toHaveAttribute(
+    expect(screen.getByTestId('button-X / Twitter')).toHaveAttribute(
       'href',
-      'http://www.cad.zju.edu.cn/',
+      'https://x.com/AuroeyWert',
     );
+    expect(screen.queryByTestId('button-Lab')).not.toBeInTheDocument();
   });
 
   it('should render LinkedIn button', () => {

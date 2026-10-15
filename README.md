@@ -2,7 +2,7 @@
 
 Personal research homepage for Xinrui Tang, built with React and TypeScript.
 
-This trial migration uses the newer React implementation as its foundation and
+This migration uses the newer React implementation as its foundation and
 connects the complete histories of the previous `auroey.github.io` and
 `web-portfolio` repositories. The legacy Jekyll templates remain recoverable in
 Git history, but are not shipped in the current site.
@@ -32,8 +32,7 @@ npm run build
 npx eslint --max-warnings 0 ./src/
 ```
 
-## Deployment status
+## Deployment
 
-This branch is a local migration trial. It has not been pushed or deployed.
-Deployment should be configured only after the content and migration commit are
-reviewed.
+Pushes to `main` are built and published to GitHub Pages by
+`.github/workflows/deploy-pages.yml`.

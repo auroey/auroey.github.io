@@ -11,7 +11,7 @@ const Container = styled.div<{ $theme: Theme }>`
   align-items: center;
   gap: 0.4rem;
   color: ${({ $theme }) => $theme.secondaryTextColor};
-  font-size: 0.9rem;
+  font-size: 15px;
 
   .button-container {
     display: inline-flex;

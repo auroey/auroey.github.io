@@ -15,12 +15,12 @@ const C = {
   Name: styled.h1<{ $theme: Theme }>`
     ${sharedStyles};
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(2.45rem, 6vw, 3.55rem);
-    line-height: 1.05;
-    margin: 0;
+    font-size: clamp(34px, 4vw, 39px);
+    line-height: 1.08;
+    margin: 0 0 7px;
     color: ${({ $theme }) => $theme.primaryTextColor};
     font-weight: 600;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.02em;
     text-wrap: balance;
   `,
 };

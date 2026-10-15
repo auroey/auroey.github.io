@@ -37,7 +37,7 @@ const S = {
     margin: 0 0 1.6rem;
     color: ${({ $theme }) => $theme.primaryTextColor};
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 1.75rem;
+    font-size: 29px;
     font-weight: 600;
     letter-spacing: -0.025em;
   `,
@@ -45,7 +45,7 @@ const S = {
     max-width: 780px;
     margin: 0;
     color: ${({ $theme }) => $theme.primaryTextColor};
-    font-size: clamp(1.2rem, 2.3vw, 1.5rem);
+    font-size: clamp(21px, 2.25vw, 23px);
     font-weight: 650;
     line-height: 1.55;
   `,
@@ -70,12 +70,12 @@ const S = {
     > span:first-child {
       color: ${({ $theme }) => $theme.accentColor};
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: 0.95rem;
+      font-size: 15px;
     }
 
     strong {
       display: block;
-      font-size: 1.02rem;
+      font-size: 18.5px;
       line-height: 1.45;
       transition: color 0.18s ease;
     }
@@ -84,7 +84,7 @@ const S = {
       display: block;
       margin-top: 0.35rem;
       color: ${({ $theme }) => $theme.secondaryTextColor};
-      font-size: 0.84rem;
+      font-size: 15px;
       line-height: 1.5;
     }
 
@@ -112,14 +112,14 @@ const S = {
 
     h3 {
       margin: 0;
-      font-size: 1.05rem;
+      font-size: 18.5px;
       line-height: 1.4;
     }
 
     p {
       margin: 0;
       color: ${({ $theme }) => $theme.secondaryTextColor};
-      font-size: 0.9rem;
+      font-size: 16px;
       line-height: 1.6;
     }
 
@@ -147,7 +147,7 @@ const S = {
     gap: 0.6rem;
     margin-top: 0.55rem;
     color: ${({ $theme }) => $theme.accentColor};
-    font-size: 0.73rem;
+    font-size: 13px;
     font-weight: 650;
   `,
   Education: styled.div<{ $theme: Theme }>`
@@ -159,19 +159,19 @@ const S = {
 
     > span:first-child {
       color: ${({ $theme }) => $theme.secondaryTextColor};
-      font-size: 0.82rem;
+      font-size: 14px;
       font-weight: 650;
     }
 
     strong {
       display: block;
       margin-bottom: 0.2rem;
-      font-size: 1rem;
+      font-size: 17px;
     }
 
     small {
       color: ${({ $theme }) => $theme.secondaryTextColor};
-      font-size: 0.88rem;
+      font-size: 15px;
     }
 
     @media (max-width: 560px) {

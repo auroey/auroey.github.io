@@ -23,7 +23,7 @@ const N = {
 
     a {
       color: ${({ $theme }) => $theme.secondaryTextColor};
-      font-size: 0.82rem;
+      font-size: 14px;
       font-weight: 700;
       text-decoration: none;
     }

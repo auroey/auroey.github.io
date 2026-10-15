@@ -15,7 +15,7 @@ const Container = styled.footer<{ $theme: Theme }>`
   border-top: 1px solid ${({ $theme }) => $theme.borderColor};
   box-sizing: border-box;
   color: ${({ $theme }) => $theme.tertiaryTextColor};
-  font-size: 0.76rem;
+  font-size: 13px;
 
   a {
     display: inline-block;

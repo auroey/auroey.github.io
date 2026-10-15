@@ -145,6 +145,12 @@ describe('application tests', () => {
         name: 'Cheng Wei (魏程) · University of Dundee',
       }),
     );
+    expect(
+      screen
+        .getByText('University of Dundee')
+        .compareDocumentPosition(screen.getByText('Northeastern University')) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
     expect(screen.queryByText('Turtle Soup AI')).not.toBeInTheDocument();
   });
 

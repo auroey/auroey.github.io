@@ -29,6 +29,19 @@ export const config: Config = {
       ],
     },
     {
+      institution: 'University of Dundee',
+      detail: 'Biomedical Engineering',
+      period: '2025 – Jun 2026',
+      advisorLabel: 'Undergraduate advisor',
+      advisors: [
+        {
+          name: 'Cheng Wei (魏程)',
+          affiliation: 'University of Dundee',
+          href: 'https://www.dundee.ac.uk/people/cheng-wei',
+        },
+      ],
+    },
+    {
       institution: 'Northeastern University',
       detail: 'Biomedical Engineering',
       period: '2022 – Jun 2026',
@@ -43,19 +56,6 @@ export const config: Config = {
           name: 'Chao Li (李超)',
           affiliation: 'University of Cambridge',
           href: 'https://www.damtp.cam.ac.uk/person/cl647',
-        },
-      ],
-    },
-    {
-      institution: 'University of Dundee',
-      detail: 'Biomedical Engineering',
-      period: '2025 – Jun 2026',
-      advisorLabel: 'Undergraduate advisor',
-      advisors: [
-        {
-          name: 'Cheng Wei (魏程)',
-          affiliation: 'University of Dundee',
-          href: 'https://www.dundee.ac.uk/people/cheng-wei',
         },
       ],
     },

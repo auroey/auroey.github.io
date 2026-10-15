@@ -6,6 +6,10 @@ import { AppContext } from 'App/AppContext';
 import { Theme } from 'types';
 
 const Container = styled.div<{ $theme: Theme }>`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+
   a,
   a:active,
   a:hover {
@@ -14,15 +18,15 @@ const Container = styled.div<{ $theme: Theme }>`
 
   .button-container {
     display: inline-block;
-    height: 6rem;
-    width: 6rem;
-    margin: 0 1.75rem;
+    height: 4.75rem;
+    width: 4.75rem;
+    margin: 0;
   }
 
   .button {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    height: 6rem;
-    width: 6rem;
+    height: 4.75rem;
+    width: 4.75rem;
     color: ${({ $theme }) => $theme.primaryTextColor};
     display: table-cell;
     vertical-align: middle;
@@ -37,9 +41,9 @@ const Container = styled.div<{ $theme: Theme }>`
   }
 
   .icon {
-    height: 4.5rem;
-    width: 4.5rem;
-    padding: 1rem;
+    height: 3.6rem;
+    width: 3.6rem;
+    padding: 0.6rem;
   }
 
   .icon_title {
@@ -75,7 +79,7 @@ const Container = styled.div<{ $theme: Theme }>`
     .button-container {
       height: 5rem;
       width: 5rem;
-      margin: 0 0.8rem;
+      margin: 0;
     }
 
     .button {

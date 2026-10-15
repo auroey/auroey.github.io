@@ -88,7 +88,7 @@ describe('application tests', () => {
 
     checkContent(
       element,
-      /^AI Researcher · Generative Models · Multimodal AI · World Models$/,
+      /^AI Researcher in Generative Models, Multimodal AI & World Models$/,
       undefined,
       true,
     );

@@ -9,9 +9,9 @@ import { Theme } from 'types';
 const T = {
   Container: styled.div`
     position: fixed;
-    z-index: 1;
-    top: 1rem;
-    right: 1rem;
+    z-index: 9;
+    top: 1.15rem;
+    right: max(1.25rem, calc((100vw - 1040px) / 2));
     display: flex;
     flex: 1;
     align-items: center;

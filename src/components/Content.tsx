@@ -16,26 +16,21 @@ const sharedStyles = css`
 const C = {
   Name: styled.h1<{ $theme: Theme }>`
     ${sharedStyles};
-    font-size: 6rem;
+    font-size: clamp(4.5rem, 8vw, 7rem);
     margin: 0;
     color: ${({ $theme }) => $theme.primaryTextColor};
     font-weight: 700;
     text-wrap: balance;
-    @media only screen and (max-width: 720px) {
-      font-size: 4.5rem;
-    }
   `,
   Title: styled.h2<{ $theme: Theme }>`
     ${sharedStyles};
-    font-size: 2rem;
-    margin: 2rem 0;
+    max-width: 780px;
+    font-size: clamp(1.7rem, 3vw, 2.35rem);
+    margin: 1.5rem 0 1rem;
     color: ${({ $theme }) => $theme.secondaryTextColor};
     font-weight: 400;
     letter-spacing: 0.02em;
     text-wrap: balance;
-    @media only screen and (max-width: 720px) {
-      font-size: 1.8rem;
-    }
   `,
 };
 

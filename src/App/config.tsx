@@ -84,6 +84,18 @@ export const config: Config = {
       href: 'mailto:xrt404@gmail.com',
     },
     {
+      name: 'google-scholar',
+      display: 'Google Scholar',
+      ariaLabel: 'Google Scholar publications (opens in new window)',
+      href: 'https://scholar.google.com/scholar?q=%22Xinrui+Tang%22+%22Hierarchical+Brain+Structure+Modeling%22',
+    },
+    {
+      name: 'lab',
+      display: 'Lab',
+      ariaLabel: 'CAD and CG Lab website (opens in new window)',
+      href: 'http://www.cad.zju.edu.cn/',
+    },
+    {
       name: 'github',
       display: 'GitHub',
       ariaLabel: 'GitHub profile (opens in new window)',

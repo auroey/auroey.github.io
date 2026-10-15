@@ -178,6 +178,17 @@ describe('application tests', () => {
     checkButton(parent, /^GitHub$/, 'https://github.com/auroey');
   });
 
+  it('should render verified academic links', () => {
+    expect(screen.getByTestId('button-Google Scholar')).toHaveAttribute(
+      'href',
+      'https://scholar.google.com/scholar?q=%22Xinrui+Tang%22+%22Hierarchical+Brain+Structure+Modeling%22',
+    );
+    expect(screen.getByTestId('button-Lab')).toHaveAttribute(
+      'href',
+      'http://www.cad.zju.edu.cn/',
+    );
+  });
+
   it('should render LinkedIn button', () => {
     const parent = screen.getByTestId('button-LinkedIn');
 

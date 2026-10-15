@@ -135,6 +135,16 @@ describe('application tests', () => {
         name: 'Cheng Wei (魏程) · University of Dundee',
       }),
     ).toHaveAttribute('href', 'https://www.dundee.ac.uk/people/cheng-wei');
+    expect(
+      screen
+        .getByText('University of Dundee')
+        .closest('span')
+        ?.parentElement,
+    ).toContainElement(
+      screen.getByRole('link', {
+        name: 'Cheng Wei (魏程) · University of Dundee',
+      }),
+    );
     expect(screen.queryByText('Turtle Soup AI')).not.toBeInTheDocument();
   });
 

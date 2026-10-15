@@ -25,7 +25,6 @@ const mockState = {
         name: 'Default Button',
         display: 'Default Display',
         ariaLabel: 'Default Aria Label',
-        icon: <></>,
         href: '#',
       },
     ],
@@ -61,20 +60,17 @@ describe('application tests', () => {
   /**
    * Check button element
    * @param {HTMLElement} parent Parent element for the button
-   * @param {HTMLElement} child Child element for the button
    * @param {RegExp} display Display value for the button
    * @param {string} link Link within the button
    */
   const checkButton = (
     parent: HTMLElement,
-    child: HTMLElement,
     display: RegExp,
     link: string,
   ) => {
-    expect(child).toHaveTextContent(display);
-
     expect(parent).toBeVisible();
     expect(parent).toHaveAccessibleName();
+    expect(parent).toHaveTextContent(display);
     expect(parent).toHaveAttribute('href', link);
   };
 
@@ -178,18 +174,15 @@ describe('application tests', () => {
 
   it('should render GitHub button', () => {
     const parent = screen.getByTestId('button-GitHub');
-    const child = screen.getByTestId('GitHub');
 
-    checkButton(parent, child, /^GitHub$/, 'https://github.com/auroey');
+    checkButton(parent, /^GitHub$/, 'https://github.com/auroey');
   });
 
   it('should render LinkedIn button', () => {
     const parent = screen.getByTestId('button-LinkedIn');
-    const child = screen.getByTestId('LinkedIn');
 
     checkButton(
       parent,
-      child,
       /^LinkedIn$/,
       'https://www.linkedin.com/in/kyle-tang-8a4752395',
     );
@@ -197,9 +190,8 @@ describe('application tests', () => {
 
   it('should render Email button', () => {
     const parent = screen.getByTestId('button-Email');
-    const child = screen.getByTestId('Email');
 
-    checkButton(parent, child, /^Email$/, 'mailto:xrt404@gmail.com');
+    checkButton(parent, /^Email$/, 'mailto:xrt404@gmail.com');
   });
 
   it('should render a light academic profile header', () => {

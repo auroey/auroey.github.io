@@ -9,56 +9,31 @@ const Container = styled.div<{ $theme: Theme }>`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.4rem;
+  color: ${({ $theme }) => $theme.secondaryTextColor};
+  font-size: 0.9rem;
 
   .button-container {
     display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
   }
 
   .button {
-    display: inline-grid;
-    width: 2.2rem;
-    height: 2.2rem;
-    color: ${({ $theme }) => $theme.secondaryTextColor};
-    border: 1px solid ${({ $theme }) => $theme.borderColor};
-    border-radius: 50%;
-    background: ${({ $theme }) => $theme.surfaceColor};
-    place-items: center;
+    color: ${({ $theme }) => $theme.primaryTextColor};
+    font-weight: 700;
     text-decoration: none;
-    transition:
-      color 0.18s ease,
-      border-color 0.18s ease,
-      background 0.18s ease;
+    transition: color 0.18s ease;
   }
 
   .button:hover,
   .button:focus-visible {
     color: ${({ $theme }) => $theme.accentColor};
-    border-color: ${({ $theme }) => $theme.accentColor};
-    background: ${({ $theme }) => $theme.accentMutedColor};
   }
 
-  .icon {
-    width: 1rem;
-    height: 1rem;
-
-    svg {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  .icon_title {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+  .separator {
+    color: ${({ $theme }) => $theme.secondaryTextColor};
+    font-weight: 400;
   }
 `;
 
@@ -67,7 +42,7 @@ export const Buttons = () => {
 
   return (
     <Container $theme={theme} aria-label="Profiles and contact">
-      {config.buttons.map(({ name, display, ariaLabel, icon, href }) => (
+      {config.buttons.map(({ name, display, ariaLabel, href }, index) => (
         <span className="button-container" key={name}>
           <a
             data-v2={`button-${display}`}
@@ -78,11 +53,13 @@ export const Buttons = () => {
             rel="noopener noreferrer"
             target="_blank"
           >
-            <span className="icon">{icon}</span>
-            <span data-v2={display} className="icon_title">
-              {display}
-            </span>
+            {display}
           </a>
+          {index < config.buttons.length - 1 && (
+            <span className="separator" aria-hidden="true">
+              ·
+            </span>
+          )}
         </span>
       ))}
     </Container>

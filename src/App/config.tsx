@@ -1,4 +1,3 @@
-import { Email, GitHub, LinkedIn } from 'icons';
 import { Config } from 'types';
 
 export const config: Config = {
@@ -79,25 +78,22 @@ export const config: Config = {
   ],
   buttons: [
     {
+      name: 'email',
+      display: 'Email',
+      ariaLabel: 'Email contact (opens in new window)',
+      href: 'mailto:xrt404@gmail.com',
+    },
+    {
       name: 'github',
       display: 'GitHub',
       ariaLabel: 'GitHub profile (opens in new window)',
-      icon: <GitHub />,
       href: 'https://github.com/auroey',
     },
     {
       name: 'linked-in',
       display: 'LinkedIn',
       ariaLabel: 'LinkedIn profile (opens in new window)',
-      icon: <LinkedIn />,
       href: 'https://www.linkedin.com/in/kyle-tang-8a4752395',
-    },
-    {
-      name: 'email',
-      display: 'Email',
-      ariaLabel: 'Email contact (opens in new window)',
-      icon: <Email />,
-      href: 'mailto:xrt404@gmail.com',
     },
   ],
 };

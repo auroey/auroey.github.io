@@ -375,12 +375,12 @@ export const ProfileSections = () => {
           <span>Research directions</span>
         </S.Stat>
         <S.Stat $theme={theme}>
-          <strong>{String(config.projects.length).padStart(2, '0')}</strong>
-          <span>Selected projects</span>
-        </S.Stat>
-        <S.Stat $theme={theme}>
           <strong>{String(config.publications.length).padStart(2, '0')}</strong>
           <span>Publications</span>
+        </S.Stat>
+        <S.Stat $theme={theme}>
+          <strong>{String(config.projects.length).padStart(2, '0')}</strong>
+          <span>Selected projects</span>
         </S.Stat>
       </S.Overview>
 
@@ -411,10 +411,37 @@ export const ProfileSections = () => {
         </S.AboutGrid>
       </S.Section>
 
+      {config.publications.length > 0 && (
+        <S.Section id="publications" $theme={theme}>
+          <S.SectionHeader>
+            <S.Heading $theme={theme}>Publications</S.Heading>
+            <S.Kicker $theme={theme}>02 · Research</S.Kicker>
+          </S.SectionHeader>
+          <S.PublicationList>
+            {config.publications.map((publication, index) => (
+              <S.Publication
+                key={publication.title}
+                href={publication.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                $theme={theme}
+              >
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <span>
+                  <strong>{publication.title}</strong>
+                  {publication.venue && <small>{publication.venue}</small>}
+                </span>
+                <span aria-hidden="true">↗</span>
+              </S.Publication>
+            ))}
+          </S.PublicationList>
+        </S.Section>
+      )}
+
       <S.Section id="projects" $theme={theme}>
         <S.SectionHeader>
           <S.Heading $theme={theme}>Selected projects</S.Heading>
-          <S.Kicker $theme={theme}>02 · Building</S.Kicker>
+          <S.Kicker $theme={theme}>03 · Building</S.Kicker>
         </S.SectionHeader>
         <S.Grid>
           {config.projects.map((project, index) => (
@@ -444,33 +471,6 @@ export const ProfileSections = () => {
           ))}
         </S.Grid>
       </S.Section>
-
-      {config.publications.length > 0 && (
-        <S.Section id="publications" $theme={theme}>
-          <S.SectionHeader>
-            <S.Heading $theme={theme}>Publications</S.Heading>
-            <S.Kicker $theme={theme}>03 · Research</S.Kicker>
-          </S.SectionHeader>
-          <S.PublicationList>
-            {config.publications.map((publication, index) => (
-              <S.Publication
-                key={publication.title}
-                href={publication.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                $theme={theme}
-              >
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <span>
-                  <strong>{publication.title}</strong>
-                  {publication.venue && <small>{publication.venue}</small>}
-                </span>
-                <span aria-hidden="true">↗</span>
-              </S.Publication>
-            ))}
-          </S.PublicationList>
-        </S.Section>
-      )}
 
       <S.Section id="education" $theme={theme}>
         <S.SectionHeader>

@@ -83,8 +83,8 @@ export const Navigation = () => {
         </N.Brand>
         <N.Links $theme={theme} aria-label="Primary navigation">
           <a href="#about">About</a>
-          <a href="#projects">Projects</a>
           <a href="#publications">Publications</a>
+          <a href="#projects">Projects</a>
           <a href="#education">Education</a>
           <a href="#contact">Contact</a>
         </N.Links>

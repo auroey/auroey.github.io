@@ -66,6 +66,18 @@ body {
   line-height: 1.7;
 }
 
+.hero-affiliation {
+  margin: 1.15rem 0 0.35rem;
+  color: #24292f;
+  font-size: 1.1rem;
+  font-weight: 650;
+  line-height: 1.6;
+}
+
+.hero-affiliation .affiliation-separator {
+  color: #0969da;
+}
+
 .explore {
   display: inline-flex;
   margin-top: 2.5rem;
@@ -88,5 +100,14 @@ body {
   .hero {
     min-height: 80vh;
     padding-top: 9rem;
+  }
+
+  .hero-affiliation .affiliation-separator {
+    display: none;
+  }
+
+  .hero-affiliation .affiliation-institution {
+    display: block;
+    color: #0969da;
   }
 }

@@ -114,12 +114,12 @@ describe('application tests', () => {
       'https://github.com/auroey/mr-IMVA-unity',
     );
     expect(screen.getByRole('heading', { name: 'Education' })).toBeVisible();
-    expect(screen.getByText('Zhejiang University')).toBeVisible();
+    expect(screen.getAllByText('Zhejiang University')).toHaveLength(2);
     expect(
-      screen.getByText(
+      screen.getAllByText(
         "Master's Student in Big Data Technology and Engineering",
       ),
-    ).toBeVisible();
+    ).toHaveLength(2);
     expect(screen.getByText('Sep 2026 – Present')).toBeVisible();
     expect(screen.queryByText('Turtle Soup AI')).not.toBeInTheDocument();
   });
@@ -140,8 +140,23 @@ describe('application tests', () => {
 
   it('should derive portfolio overview counts from verified content', () => {
     expect(screen.getByLabelText('Portfolio overview')).toHaveTextContent(
-      '03Research directions04Selected projects02Publications',
+      '03Research directions02Publications04Selected projects',
     );
+  });
+
+  it('should prioritize publications before projects and education', () => {
+    const publications = screen.getByRole('heading', { name: 'Publications' });
+    const projects = screen.getByRole('heading', { name: 'Selected projects' });
+    const education = screen.getByRole('heading', { name: 'Education' });
+
+    expect(
+      publications.compareDocumentPosition(projects) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      projects.compareDocumentPosition(education) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
   });
 
   it('should render the verified contact email', () => {

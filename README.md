@@ -13,8 +13,9 @@ Git history, but are not shipped in the current site.
   publications only.
 - Do not copy demo publications, placeholder CV entries, stock images, or other
   upstream template content.
-- Keep the AI chat UI disabled unless a protected server-side endpoint is
-  deliberately configured.
+- Do not publish an outdated résumé.
+- Keep the homepage static: the former AI chat UI and serverless endpoint have
+  been removed from the current tree and remain available in Git history.
 
 ## Local development
 
@@ -30,16 +31,6 @@ npm test -- --watchAll=false
 npm run build
 npx eslint --max-warnings 0 ./src/
 ```
-
-## Optional chat endpoint
-
-The static homepage does not require an API key. Chat is off by default through
-`REACT_APP_ENABLE_CHAT=false`.
-
-If chat is enabled later, store `DASHSCOPE_API_KEY` only in the hosting
-provider's server-side environment. Never add it to a tracked `.env` file or to
-client-side variables. Add authentication, rate limiting, and an origin
-allowlist before exposing the endpoint publicly.
 
 ## Deployment status
 

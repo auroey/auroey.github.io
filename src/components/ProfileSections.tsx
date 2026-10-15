@@ -36,6 +36,16 @@ const S = {
     color: ${({ $theme }) => $theme.secondaryTextColor};
     font-size: 1.2rem;
     line-height: 1.8;
+
+    a {
+      color: ${({ $theme }) => $theme.primaryTextColor};
+      text-decoration-color: ${({ $theme }) => $theme.tertiaryTextColor};
+      text-underline-offset: 0.2em;
+    }
+
+    a:hover {
+      text-decoration-color: ${({ $theme }) => $theme.primaryTextColor};
+    }
   `,
   Tags: styled.div`
     display: flex;
@@ -164,7 +174,13 @@ export const ProfileSections = () => {
           {config.publications.map((publication) => (
             <S.Text key={publication.title} $theme={theme}>
               {publication.href ? (
-                <a href={publication.href}>{publication.title}</a>
+                <a
+                  href={publication.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {publication.title}
+                </a>
               ) : (
                 publication.title
               )}

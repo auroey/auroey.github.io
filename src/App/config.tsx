@@ -1,4 +1,4 @@
-import { Email, GitHub, LinkedIn, Resume } from 'icons';
+import { Email, GitHub, LinkedIn } from 'icons';
 import { Config } from 'types';
 
 export const config: Config = {
@@ -21,14 +21,19 @@ export const config: Config = {
   ],
   education: [
     {
+      institution: 'Zhejiang University',
+      detail: 'Current studies',
+      period: 'Sep 2026 – present',
+    },
+    {
       institution: 'Northeastern University',
       detail: 'Biomedical Engineering',
-      period: '2022 – 2025',
+      period: '2022 – Jun 2026',
     },
     {
       institution: 'University of Dundee',
-      detail: 'Biomedical Engineering studies',
-      period: '2025 – present',
+      detail: 'Biomedical Engineering',
+      period: '2025 – Jun 2026',
     },
   ],
   projects: [
@@ -60,32 +65,22 @@ export const config: Config = {
       href: 'https://github.com/auroey/research-skill',
       tags: ['Codex', 'Research', 'Python'],
     },
+  ],
+  publications: [
     {
-      name: 'Cursor with Codex',
-      description:
-        'A local collaboration workflow that combines Codex planning and review with Cursor implementation.',
-      href: 'https://github.com/auroey/cursor-with-codex',
-      tags: ['Codex', 'Cursor', 'Automation'],
+      title:
+        'Hierarchical Brain Structure Modeling for Predicting Genotype of Glioma',
+      venue: 'CMMCA at MICCAI 2025 · Springer LNCS',
+      href: 'https://arxiv.org/abs/2508.09593',
     },
     {
-      name: 'Turtle Soup AI',
-      description:
-        'An online lateral-thinking puzzle game with conversational AI-assisted play.',
-      href: 'https://auroey.github.io/turtle-soup-ai/',
-      tags: ['React', 'TypeScript', 'AI'],
+      title:
+        'Sex, Age, and Race Representation in Electromyography Research: A Cross-Sectional Methodological Survey',
+      venue: 'Journal of Electromyography and Kinesiology 91 (2026), 103218',
+      href: 'https://doi.org/10.1016/j.jelekin.2026.103218',
     },
   ],
-  // No verified publication records were present in the legacy site. Add only
-  // publications that have been reviewed and confirmed by the site owner.
-  publications: [],
   buttons: [
-    {
-      name: 'resume',
-      display: 'Resume',
-      ariaLabel: 'Resume (opens in new window)',
-      icon: <Resume />,
-      href: `${process.env.PUBLIC_URL ?? ''}/Resume.pdf`,
-    },
     {
       name: 'github',
       display: 'GitHub',

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 
 import {
   Buttons,
-  ChatBot,
   Content,
   Footer,
   Particles,
@@ -49,7 +48,6 @@ export const App = () => {
         </section>
         <ProfileSections />
         <Footer />
-        {process.env.REACT_APP_ENABLE_CHAT === 'true' && <ChatBot />}
       </main>
     </AppProvider>
   );

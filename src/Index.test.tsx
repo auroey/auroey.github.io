@@ -116,6 +116,26 @@ describe('application tests', () => {
     expect(
       screen.getByRole('heading', { name: 'Education' }),
     ).toBeVisible();
+    expect(screen.getByText('Zhejiang University')).toBeVisible();
+    expect(screen.getByText('Sep 2026 – present')).toBeVisible();
+    expect(screen.queryByText('Turtle Soup AI')).not.toBeInTheDocument();
+  });
+
+  it('should render the two verified publications', () => {
+    expect(screen.getByRole('heading', { name: 'Publications' })).toBeVisible();
+    expect(
+      screen.getByRole('link', {
+        name: /Hierarchical Brain Structure Modeling/i,
+      }),
+    ).toHaveAttribute('href', 'https://arxiv.org/abs/2508.09593');
+    expect(
+      screen.getByRole('link', {
+        name: /Sex, Age, and Race Representation/i,
+      }),
+    ).toHaveAttribute(
+      'href',
+      'https://doi.org/10.1016/j.jelekin.2026.103218',
+    );
   });
 
   it('should render GitHub button', () => {
@@ -134,18 +154,6 @@ describe('application tests', () => {
       child,
       /^LinkedIn$/,
       'https://www.linkedin.com/in/kyle-tang-8a4752395',
-    );
-  });
-
-  it('should render Resume button', () => {
-    const parent = screen.getByTestId('button-Resume');
-    const child = screen.getByTestId('Resume');
-
-    checkButton(
-      parent,
-      child,
-      /^Resume$/,
-      `${process.env.PUBLIC_URL ?? ''}/Resume.pdf`,
     );
   });
 

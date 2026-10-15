@@ -1,0 +1,52 @@
+html {
+  font-size: 12px;
+  font-family:
+    'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 320px;
+}
+
+.app {
+  margin: 0;
+  width: 100vw;
+  min-height: 100vh;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 92vh;
+  padding: 4rem 1.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.explore {
+  margin-top: 3rem;
+  color: #8fa3b8;
+  text-decoration: none;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 720px) {
+  .hero {
+    min-height: 86vh;
+    padding-top: 6rem;
+  }
+}

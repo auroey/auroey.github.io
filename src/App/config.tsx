@@ -118,6 +118,12 @@ export const config: Config = {
       href: 'https://scholar.google.com/citations?user=f1FFPwYAAAAJ&hl=en',
     },
     {
+      name: 'notes',
+      display: 'Notes',
+      ariaLabel: 'Obsidian digital garden (opens in new window)',
+      href: 'https://auroey.github.io/web-digital-garden-ts/',
+    },
+    {
       name: 'github',
       display: 'GitHub',
       ariaLabel: 'GitHub profile (opens in new window)',

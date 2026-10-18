@@ -224,6 +224,10 @@ describe('application tests', () => {
       'href',
       'https://x.com/AuroeyWert',
     );
+    expect(screen.getByTestId('button-Notes')).toHaveAttribute(
+      'href',
+      'https://auroey.github.io/web-digital-garden-ts/',
+    );
     expect(screen.queryByTestId('button-Lab')).not.toBeInTheDocument();
   });
 
